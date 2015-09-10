@@ -1,0 +1,8 @@
+## Interface: 60200
+## Title: KiNoYo-Rotation
+## Version: 0.1
+## Author: Pelerinage, Tylorcaptain
+## Notes: Builds rotations for any class or speciality
+
+embeds.xml
+Core.lua

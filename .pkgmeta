@@ -1,0 +1,21 @@
+enable-nolib-creation: no
+
+externals:
+	libs/LibStub:
+		url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/LibStub
+		tag: latest
+	libs/AceAddon-3.0:
+		url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/AceAddon-3.0
+		tag: latest
+	libs/AceConsole-3.0:
+		url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/AceConsole-3.0
+		tag: latest
+	libs/AceLocale-3.0:
+		url: svn://svn.wowace.com/wow/ace3/mainline/tags/Release-r1134/AceLocale-3.0
+		tag: latest
+
+ignore:
+	- .pkgmeta
+	- .docmeta
+
+package-as: KiNoYo-Rotation
