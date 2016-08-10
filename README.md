@@ -2,7 +2,7 @@
 
 ## Description
 
-<acronym title="World of Warcraft">WoW</acronym>? addon to help you get the most of your class rotation.
+<abbr title="World of Warcraft">WoW</abbr> addon to help you get the most of your class rotation.
 
 This is a reboot of [RotationBuilder](http://wow.curseforge.com/addons/rotation-builder/) with the aim to:
 
