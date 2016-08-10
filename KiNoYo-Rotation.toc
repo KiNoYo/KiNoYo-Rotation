@@ -1,4 +1,4 @@
-## Interface: 60200
+## Interface: 70000
 ## Title: KiNoYo-Rotation
 ## Version: 0.1
 ## Author: Pelerinage, Tylorcaptain
