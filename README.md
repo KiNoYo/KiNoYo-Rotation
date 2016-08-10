@@ -25,3 +25,19 @@ This is a reboot of [RotationBuilder](http://wow.curseforge.com/addons/rotation-
 * display more efficiently buff/debuff to refresh
 * add a way to give advise on the fly
 * Make this addon more easy to mod with other addons
+
+## Installation for development
+
+Clone the repository into your github repository directory:
+
+```bash
+cd <path_to_github_repository>
+git clone --recursive https://github.com/KiNoYo/KiNoYo-Rotation.git KiNoYo-Rotation
+```
+
+Install the cloned repository as an addon for World of Warcraft:
+
+```bash
+cd <path_to_WoW>\Interface\AddOns
+mklink /J KiNoYo-Rotation <path_to_github_repository>\KiNoYo-Rotation
+```
