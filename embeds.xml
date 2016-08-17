@@ -2,4 +2,7 @@
 	<Script file="libs\Ace-3.0\LibStub\LibStub.lua"/>
 	<Include file="libs\Ace-3.0\AceAddon-3.0\AceAddon-3.0.xml"/>
 	<Include file="libs\Ace-3.0\AceConsole-3.0\AceConsole-3.0.xml"/>
+	<Include file="libs\Ace-3.0\CallbackHandler-1.0\CallbackHandler-1.0.xml"/>
+	<Include file="libs\Ace-3.0\AceGUI-3.0\AceGUI-3.0.xml"/>
+	<Include file="libs\Ace-3.0\AceConfig-3.0\AceConfig-3.0.xml"/>
 </Ui>
