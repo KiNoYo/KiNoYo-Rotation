@@ -2,6 +2,7 @@ local AceConfig = LibStub("AceConfig-3.0");
 local AceConfigDialog = LibStub("AceConfigDialog-3.0");
 local AceConfigCmd = LibStub("AceConfigCmd-3.0");
 local KiNoYo_Rotation = LibStub("AceAddon-3.0"):NewAddon("KiNoYo_Rotation", "AceConsole-3.0");
+
 local options = {
 	name = "KiNoYo_Rotation",
 	desc = "Kill the Nood in You - Rotation",
@@ -29,30 +30,30 @@ function KiNoYo_Rotation:ChatCommand(input)
 end
 
 function KiNoYo_Rotation:GetEnableStatus(info)
-    return KiNoYo_Rotation:IsEnabled();
+		return self:IsEnabled();
 end
 
 function KiNoYo_Rotation:SetEnableStatus(info, value)
 	if value then
-		KiNoYo_Rotation:Enable();
+		self:Enable();
 	else
-		KiNoYo_Rotation:Disable();
+		self:Disable();
 	end
 end
 
 function KiNoYo_Rotation:OnInitialize()
 	-- Code that you want to run when the addon is first loaded goes here.
-	KiNoYo_Rotation:Print("KiNoYo_Rotation - loaded!");
-	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options, "kinoyo");
-	--TODO VDU - KiNoYo_Rotation:RegisterChatCommand("kinoyo", "ChatCommand");
+	self:Print("KiNoYo_Rotation - loaded!");
+	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options);
+	self:RegisterChatCommand("kinoyo", "ChatCommand");
 end
 
 function KiNoYo_Rotation:OnEnable()
 	-- Called when the addon is enabled
-	KiNoYo_Rotation:Print("KiNoYo_Rotation - enable!");
+	self:Print("KiNoYo_Rotation - enable!");
 end
 
 function KiNoYo_Rotation:OnDisable()
 	-- Called when the addon is disabled
-	KiNoYo_Rotation:Print("KiNoYo_Rotation - disabled!");
+	self:Print("KiNoYo_Rotation - disabled!");
 end
