@@ -23,7 +23,8 @@ local options = {
 function KiNoYo_Rotation:ChatCommand(input)
 	-- TODO VDU - open the popup another way.
 	if not input or input:trim() == "" then
-		AceConfigDialog:Open("KiNoYo_Rotation");
+		-- AceConfigDialog:Open("KiNoYo_Rotation");
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame);
 	else
 		AceConfigCmd.HandleCommand(KiNoYo_Rotation, "kinoyo", "KiNoYo_Rotation", input);
 	end
@@ -45,6 +46,7 @@ function KiNoYo_Rotation:OnInitialize()
 	-- Code that you want to run when the addon is first loaded goes here.
 	self:Print("KiNoYo_Rotation - loaded!");
 	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options);
+	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("KiNoYo_Rotation");
 	self:RegisterChatCommand("kinoyo", "ChatCommand");
 end
 
