@@ -1,7 +1,15 @@
 local AceConfig = LibStub("AceConfig-3.0");
 local AceConfigDialog = LibStub("AceConfigDialog-3.0");
 local AceConfigCmd = LibStub("AceConfigCmd-3.0");
+local AceDB = LibStub("AceDB-3.0");
 local KiNoYo_Rotation = LibStub("AceAddon-3.0"):NewAddon("KiNoYo_Rotation", "AceConsole-3.0");
+
+local defaults = {
+		global = {
+				test = "Welcome Home!",
+				enable = true
+		}
+};
 
 local options = {
 	name = "KiNoYo_Rotation",
@@ -15,13 +23,19 @@ local options = {
 			type = "toggle",
 			set = "SetEnableStatus",
 			get = "GetEnableStatus"
+		},
+		test = {
+			name = "Test",
+			desc = "Test text",
+			type = "input",
+			set = "SetTest",
+			get = "GetTest"
 		}
 	}
 };
 
 -- Show the GUI if no input is supplied, otherwise handle the chat input.
 function KiNoYo_Rotation:ChatCommand(input)
-	-- TODO VDU - open the popup another way.
 	if not input or input:trim() == "" then
 		-- AceConfigDialog:Open("KiNoYo_Rotation");
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame);
@@ -35,6 +49,7 @@ function KiNoYo_Rotation:GetEnableStatus(info)
 end
 
 function KiNoYo_Rotation:SetEnableStatus(info, value)
+	self.db.global.enable = value;
 	if value then
 		self:Enable();
 	else
@@ -42,9 +57,25 @@ function KiNoYo_Rotation:SetEnableStatus(info, value)
 	end
 end
 
+function KiNoYo_Rotation:GetTest(info)
+	return self.db.global.test;
+end
+
+function KiNoYo_Rotation:SetTest(info, value)
+	self.db.global.test = value;
+end
+
 function KiNoYo_Rotation:OnInitialize()
 	-- Code that you want to run when the addon is first loaded goes here.
 	self:Print("KiNoYo_Rotation - loaded!");
+
+	self.db = AceDB:New("KiNoYo_RotationDB", defaults, true);
+	if self.db.global.enable then
+		self:Enable();
+	else
+		self:Disable();
+	end
+
 	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options);
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("KiNoYo_Rotation");
 	self:RegisterChatCommand("kinoyo", "ChatCommand");

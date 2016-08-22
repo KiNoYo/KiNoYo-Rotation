@@ -3,6 +3,7 @@
 ## Version: 0.1
 ## Author: Pelerinage, Tylorcaptain
 ## Notes: Builds rotations for any class or speciality
+## SavedVariables: KiNoYo_RotationDB
 
 embeds.xml
 Core.lua
