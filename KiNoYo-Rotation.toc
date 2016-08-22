@@ -5,5 +5,21 @@
 ## Notes: Builds rotations for any class or speciality
 ## SavedVariables: KiNoYo_RotationDB
 
+-- Dependencies
 embeds.xml
+
+-- Localization
+localization\enUS.lua
+localization\zhCN.lua
+localization\frFR.lua
+localization\deDE.lua
+localization\koKR.lua
+localization\zhTW.lua
+localization\ruRU.lua
+localization\esES.lua
+localization\esMX.lua
+localization\itIT.lua
+localization\ptBR.lua
+
+-- Core
 Core.lua

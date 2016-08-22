@@ -2,31 +2,32 @@ local AceConfig = LibStub("AceConfig-3.0");
 local AceConfigDialog = LibStub("AceConfigDialog-3.0");
 local AceConfigCmd = LibStub("AceConfigCmd-3.0");
 local AceDB = LibStub("AceDB-3.0");
+local L = LibStub("AceLocale-3.0"):GetLocale("KiNoYo_Rotation");
 local KiNoYo_Rotation = LibStub("AceAddon-3.0"):NewAddon("KiNoYo_Rotation", "AceConsole-3.0");
 
 local defaults = {
 		global = {
-				test = "Welcome Home!",
+				test = L["kinoyo/rotation/options/enable/defaultValue"],
 				enable = true
 		}
 };
 
 local options = {
-	name = "KiNoYo_Rotation",
-	desc = "Kill the Nood in You - Rotation",
+	name = L["kinoyo/rotation/options/name"],
+	desc = L["kinoyo/rotation/options/description"],
 	handler = KiNoYo_Rotation,
 	type = "group",
 	args = {
 		enable = {
-			name = "Enable",
-			desc = "Enable / disable this addon",
+			name = L["kinoyo/rotation/options/enable/name"],
+			desc = L["kinoyo/rotation/options/enable/description"],
 			type = "toggle",
 			set = "SetEnableStatus",
 			get = "GetEnableStatus"
 		},
 		test = {
-			name = "Test",
-			desc = "Test text",
+			name = L["kinoyo/rotation/options/test/name"],
+			desc = L["kinoyo/rotation/options/test/description"],
 			type = "input",
 			set = "SetTest",
 			get = "GetTest"
@@ -79,6 +80,7 @@ function KiNoYo_Rotation:OnInitialize()
 	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options);
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("KiNoYo_Rotation");
 	self:RegisterChatCommand("kinoyo", "ChatCommand");
+	self:RegisterChatCommand("kny", "ChatCommand");
 end
 
 function KiNoYo_Rotation:OnEnable()

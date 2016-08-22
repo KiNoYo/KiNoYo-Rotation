@@ -6,4 +6,5 @@
 	<Include file="libs\Ace-3.0\AceGUI-3.0\AceGUI-3.0.xml"/>
 	<Include file="libs\Ace-3.0\AceConfig-3.0\AceConfig-3.0.xml"/>
 	<Include file="libs\Ace-3.0\AceDB-3.0\AceDB-3.0.xml"/>
+	<Include file="libs\Ace-3.0\AceLocale-3.0\AceLocale-3.0.xml"/>
 </Ui>
