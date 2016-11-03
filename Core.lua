@@ -2,6 +2,7 @@ local AceConfig = LibStub("AceConfig-3.0");
 local AceConfigDialog = LibStub("AceConfigDialog-3.0");
 local AceConfigCmd = LibStub("AceConfigCmd-3.0");
 local AceDB = LibStub("AceDB-3.0");
+local AceGUI = LibStub("AceGUI-3.0");
 local L = LibStub("AceLocale-3.0"):GetLocale("KiNoYo_Rotation");
 local KiNoYo_Rotation = LibStub("AceAddon-3.0"):NewAddon("KiNoYo_Rotation", "AceConsole-3.0");
 
@@ -84,6 +85,20 @@ end
 function KiNoYo_Rotation:OnEnable()
 	-- Called when the addon is enabled
 	self:Print("KiNoYo_Rotation - enable!");
+	-- Create a container frame
+	local f = AceGUI:Create("Frame");
+	f:SetCallback("OnClose",function(widget) AceGUI:Release(widget) end);
+	f:SetTitle("AceGUI-3.0 Example");
+	f:SetStatusText("Status Bar");
+	f:SetLayout("Flow");
+	-- Create a button
+	local btn = AceGUI:Create("Icon");
+	btn:SetWidth(50);
+	btn:SetHeight(50);
+	-- Add the button to the container
+	f:AddChild(btn);
+	--local frame = CreateFrame("Frame", "Actions", UIParent);
+	--local image = CreateFrame("Button", "CurrentAction", UIParent);
 end
 
 function KiNoYo_Rotation:OnDisable()
