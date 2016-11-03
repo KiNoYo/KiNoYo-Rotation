@@ -69,18 +69,16 @@ end
 function KiNoYo_Rotation:OnInitialize()
 	-- Code that you want to run when the addon is first loaded goes here.
 	self:Print("KiNoYo_Rotation - loaded!");
-
+	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options);
+	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("KiNoYo_Rotation", L["kinoyo/rotation/options/name"]);
+	self:RegisterChatCommand("kinoyo", "ChatCommand");
+	self:RegisterChatCommand("kny", "ChatCommand");
 	self.db = AceDB:New("KiNoYo_RotationDB", defaults, true);
 	if self.db.global.enable then
 		self:Enable();
 	else
 		self:Disable();
 	end
-
-	AceConfig:RegisterOptionsTable("KiNoYo_Rotation", options);
-	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("KiNoYo_Rotation");
-	self:RegisterChatCommand("kinoyo", "ChatCommand");
-	self:RegisterChatCommand("kny", "ChatCommand");
 end
 
 function KiNoYo_Rotation:OnEnable()
