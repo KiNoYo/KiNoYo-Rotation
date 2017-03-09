@@ -41,6 +41,7 @@ function KiNoYo_Rotation:ChatCommand(input)
 	if not input or input:trim() == "" then
 		-- AceConfigDialog:Open("KiNoYo_Rotation");
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame);
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame);
 	else
 		AceConfigCmd.HandleCommand(KiNoYo_Rotation, "kinoyo", "KiNoYo_Rotation", input);
 	end
@@ -85,20 +86,35 @@ end
 function KiNoYo_Rotation:OnEnable()
 	-- Called when the addon is enabled
 	self:Print("KiNoYo_Rotation - enable!");
-	-- Create a container frame
-	local f = AceGUI:Create("Frame");
-	f:SetCallback("OnClose",function(widget) AceGUI:Release(widget) end);
-	f:SetTitle("AceGUI-3.0 Example");
-	f:SetStatusText("Status Bar");
-	f:SetLayout("Flow");
-	-- Create a button
-	local btn = AceGUI:Create("Icon");
-	btn:SetWidth(50);
-	btn:SetHeight(50);
-	-- Add the button to the container
-	f:AddChild(btn);
-	--local frame = CreateFrame("Frame", "Actions", UIParent);
-	--local image = CreateFrame("Button", "CurrentAction", UIParent);
+	local actionsFrame = CreateFrame("frame","MyAddonFrame")
+	actionsFrame:SetBackdrop({
+    bgFile="Interface\\DialogFrame\\UI-DialogBox-Background",
+    --edgeFile="Interface\\DialogFrame\\UI-DialogBox-Border",
+    -- tile=1, tileSize=32, edgeSize=32,
+    -- insets={left=11, right=12, top=12, bottom=11}
+	})
+	actionsFrame:SetWidth(100);
+	actionsFrame:SetHeight(100);
+	actionsFrame:SetPoint("CENTER",UIParent);
+	actionsFrame:EnableMouse(true);
+	actionsFrame:SetMovable(true);
+	actionsFrame:RegisterForDrag("LeftButton");
+	actionsFrame:SetScript("OnDragStart", function(self) self:StartMoving() end);
+	actionsFrame:SetScript("OnDragStop", function(self) self:StopMovingOrSizing() end);
+	actionsFrame:SetFrameStrata("FULLSCREEN_DIALOG");
+
+	local spellName = GetSpellInfo(1766);
+	self:Print(spellName);
+	local texture = GetSpellTexture(1766);
+	local button = CreateFrame("button","MyAddonButton", actionsFrame, "UIPanelButtonTemplate");
+	if nil ~= texture then
+		self:Print(texture);
+		-- button:SetTexture("Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Factions.blp");
+	end
+	button:SetHeight(32);
+	button:SetWidth(32);
+	button:SetPoint("BOTTOM", actionsFrame, "BOTTOM", 0, 0);
+	-- button:SetText("Test")
 end
 
 function KiNoYo_Rotation:OnDisable()
